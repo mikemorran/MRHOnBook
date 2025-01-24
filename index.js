@@ -3,7 +3,8 @@ const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 const admin = require('firebase-admin');
-const serviceAccount = require('./key.json');
+const serviceAccount = process.env.KEY_JSON || require('./key.json');
+console.log(serviceAccount)
 
 const app = express();
 const server = http.createServer(app);
