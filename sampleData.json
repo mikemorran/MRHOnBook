@@ -1,0 +1,28 @@
+{
+    "scenes" :
+        {
+            "UID" : {
+                "name": "Act2.scene3",
+                "recordedTimestamp": "",
+                "backdrop": {
+                    "mesh": "file",
+                    "transform": {
+                        "position": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }
+                },
+                "samples": {
+                    "actor1": {},
+                    "actor2": {}
+                },
+                "annotations": {
+                    "[metaID]": {
+
+                    }
+                }
+            }
+        }
+}
