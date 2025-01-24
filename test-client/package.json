@@ -1,7 +1,4 @@
 {
-  "scripts": {
-    "start": "node index.js"
-  },
   "dependencies": {
     "socket.io-client": "^4.8.1"
   }
