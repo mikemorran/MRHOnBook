@@ -121,7 +121,7 @@ app.get("/api/currentsceneid", async (req, res) => {
     const snapshot = await db.ref(`${projectName}/currentScene`).once("value");
     const currentScene = snapshot.val() || null;
 
-    return res.status(200).json({currenScenetId: currentScene});
+    return res.status(200).json({currentScenetId: currentScene});
   } catch (error) {
     console.error("Error reading scene config:", error);
     return res.status(500).json({ error: "Failed to read scene config" });
