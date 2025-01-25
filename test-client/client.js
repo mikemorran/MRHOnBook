@@ -4,8 +4,8 @@ const fs = require('fs');
 const { AudioContext } = require('web-audio-api');
 
 //EXAMPLES
-const webserverURL = "https://mrhonbook-132d3a53c108.herokuapp.com";
-//const webserverURL = "http://localhost:3000";
+// const webserverURL = "https://mrhonbook-132d3a53c108.herokuapp.com";
+const webserverURL = "http://localhost:3000";
 
 //EXAMPLE: On connection, READ the current scene configuration
 async function getSceneConfig() {
@@ -53,8 +53,8 @@ async function recordMocapAndAudio() {
   const audioFile = fs.readFileSync('./file_example_MP3_5MG.mp3');
 
   //Upload files
-  const mocapDownloadURL = await uploadFile(mocapFile, "testClient123" + "Mocap")
-  const audioDownloadURL = await uploadFile(audioFile, "testClient123" + "Audio")
+  const mocapDownloadURL = await uploadFile(mocapFile, "testClient456" + "Mocap")
+  const audioDownloadURL = await uploadFile(audioFile, "testClient456" + "Audio")
   console.log(mocapDownloadURL, audioDownloadURL)
   if (!mocapDownloadURL || !audioDownloadURL) {
     console.error('missing urls for uploaded files');
@@ -192,3 +192,5 @@ async function fetchFileBlob(fileName) {
     }
   }) 
 }
+
+recordMocapAndAudio()

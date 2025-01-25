@@ -1,0 +1,33 @@
+{
+  "ProjectName": {
+    "currentScene": "scene001",
+    "scenes": {
+      "scene001": {
+        "annotations": {
+          "-OHQ3hWkEZF1pqlGbcZw": {
+            "annotationData": "testClient456",
+            "clientId": "testClient456",
+            "createdAt": 1737768491036
+          },
+          "-OHQCYJQZ4QDSnUGZRvb": {
+            "annotationData": "some new annotation data1737770808563",
+            "clientId": "testClient123",
+            "createdAt": 1737770808603
+          }
+        },
+        "samples": {
+          "testClient123": {
+            "endedAt": 1737809377657,
+            "recordedAudio": "https://firebasestorage.googleapis.com/v0/b/mrhonbook.firebasestorage.app/o/uploads%2FtestClient123Audio?alt=media&token=e714ab5b-36c9-464f-8585-e8350ae080b6",
+            "recordedMocap": "https://firebasestorage.googleapis.com/v0/b/mrhonbook.firebasestorage.app/o/uploads%2FtestClient123Mocap?alt=media&token=ad8d72a1-cfac-424b-8aca-ac1da49d7a75"
+          },
+          "testClient456": {
+            "endedAt": 1737768072326,
+            "recordedAudio": "someAudioData",
+            "recordedMocap": "someMocapData"
+          }
+        }
+      }
+    }
+  }
+}
