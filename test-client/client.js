@@ -1,23 +1,23 @@
-// client.js
-const { io } = require("socket.io-client");
+//EXAMPLES
 
-// Replace this URL with your Socket.IO server address
-const socket = io("http://localhost:3000");
 
-// Fires when the client connects successfully
-socket.on("connect", () => {
-  console.log("Connected to server with ID:", socket.id);
 
-  // Example: Emit a 'chat message' event to the server
-  socket.emit("chat message", "Hello from the command-line client!");
-});
+async function test() {
+  try {
+    const response = await fetch("http://localhost:3000/api/playback", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        clientId: "testClient123",
+        sceneId: "scene001"
+      })
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Error during testRecordingEnd:", error);
+  }
+}
 
-// Fires when a 'chat message' event is received from the server
-socket.on("chat message", (msg) => {
-  console.log("Received chat message:", msg);
-});
+test();
 
-// Fires if the client disconnects
-socket.on("disconnect", () => {
-  console.log("Disconnected from server");
-});
