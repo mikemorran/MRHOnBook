@@ -1,6 +1,9 @@
 {
   "dependencies": {
+    "firebase": "^11.2.0",
+    "fs": "^0.0.1-security",
     "node-fetch": "^3.3.2",
-    "socket.io-client": "^4.8.1"
+    "socket.io-client": "^4.8.1",
+    "web-audio-api": "^0.2.2"
   }
 }

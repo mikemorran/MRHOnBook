@@ -1,7 +1,6 @@
 // server.js
 const express = require("express");
 const http = require("http");
-const { Server } = require("socket.io");
 const admin = require("firebase-admin");
 const serviceAccount = process.env.KEY_JSON ? JSON.parse(process.env.KEY_JSON) : require("./key.json");
 
@@ -17,13 +16,13 @@ const db = admin.database();
 const projectName = "ProjectName";
 
 app.get("/", (req, res) => {
-  res.send("Socket.IO server is up and running!");
+  res.send("Server is up and running!");
 });
 
 app.use(express.json());
 
 //On recording end, UPDATE data for performing clients
-app.post("/api/recording/end", async (req, res) => {
+app.post("/api/endrecording", async (req, res) => {
   try {
     console.log(req.body)
     const { clientId, audioData, mocapData, sceneId } = req.body;
@@ -46,7 +45,7 @@ app.post("/api/recording/end", async (req, res) => {
 });
 
 // On annotation end, CREATE new annotation
-app.post("/api/annotations", async (req, res) => {
+app.post("/api/annotation", async (req, res) => {
   try {
     const { annotationData, clientId, sceneId } = req.body;
     const newAnnotationRef = db
@@ -116,6 +115,7 @@ app.get("/api/currentscene", async (req, res) => {
   }
 });
 
+// Get the playback files
 app.post("/api/playback", async (req, res) => {
   try {
     const { sceneId, clientId } = req.body;
@@ -143,20 +143,7 @@ server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
 
-/*
-EVENTS NEEDED:
-1. On recording end, UPDATE data for performing clients.
-2. On recording end, UPDATE the audio files for performing client.
-
-3. On annotation start, CREATE data for new annotation from annotating client.
-4. On annotation delete, DELETE data for annotation.
-
-5. On client connection, READ current scene configuration.
-6. On client connection, READ scenes to get data for library.
-
-7. On library change, UPDATE current scene configuration.
-8. On library change, READ new scene configuration.
-
-9. On playback start, READ mocap files for external clients.
-10. On playback start, READ audio files for external clients.
+/* 
+TODO:
+- Figure out connecting firebase to Unity
 */
